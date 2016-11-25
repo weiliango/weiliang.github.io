@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>INF553-Week1 | william's blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="images/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">INF553-Week1</h1><a id="logo" href="/.">william's blog</a><p class="description">~做一只聪明的乌龟</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">INF553-Week1</h1><div class="post-meta">Nov 24, 2016<span> | </span><span class="category"><a href="/categories/Course/">Course</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/11/24/INF553-Week1/" href="/2016/11/24/INF553-Week1/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="Definition-of-Data-Mining"><a href="#Definition-of-Data-Mining" class="headerlink" title="Definition of Data Mining"></a>Definition of Data Mining</h2><p>Data mining = extraction of actionable information from (usually) very large datasets, is the subject of extreme hype, fear and interest</p>
+<h3 id="DIKW-Pyramid"><a href="#DIKW-Pyramid" class="headerlink" title="DIKW Pyramid"></a>DIKW Pyramid</h3><p>$$<br>data\to information\to knowledge \to wisdom<br>$$</p>
+<h3 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h3><p>Def.</p>
+<p>​    a simple representation of the data, typically used for prediction</p>
+<h2 id="Outline-of-Course"><a href="#Outline-of-Course" class="headerlink" title="Outline of Course"></a>Outline of Course</h2><ul>
+<li>Map-Reduce and Hadoop</li>
+<li>Association rules, frequent itemsets</li>
+<li>Recommendation systems<ul>
+<li>collaborative filtering</li>
+</ul>
+</li>
+<li>Finding similar sets<ul>
+<li>Minhashing</li>
+<li>Locality-Sensitive hashing</li>
+</ul>
+</li>
+<li>PageRand and related measures of importance on the Web(link analysis)<ul>
+<li>Spam detection</li>
+<li>Topic-specific search</li>
+</ul>
+</li>
+<li>Extracting structured data(relations) from the web</li>
+<li>Clustering data</li>
+<li>Managing Web advertisements</li>
+<li>Mining data streams</li>
+</ul>
+<h2 id="What-is-Data-Mining"><a href="#What-is-Data-Mining" class="headerlink" title="What is Data Mining"></a>What is Data Mining</h2><p>Discover patterns and models that are: valid, useful, unexpected and understandable</p>
+<h2 id="Data-Mining-Tasks"><a href="#Data-Mining-Tasks" class="headerlink" title="Data Mining Tasks"></a>Data Mining Tasks</h2><ul>
+<li>Descriptive methods <ul>
+<li>find human-interpretable patterns that describe the data </li>
+<li>Example: Clustering</li>
+</ul>
+</li>
+<li>Predictive methods<ul>
+<li>Example: Recommender systems</li>
+</ul>
+</li>
+</ul>
+<h2 id="Modeling-Data"><a href="#Modeling-Data" class="headerlink" title="Modeling Data"></a>Modeling Data</h2><ul>
+<li>Summarization<ul>
+<li>PageRank</li>
+<li>Clustering</li>
+</ul>
+</li>
+<li>Feature Extraction<ul>
+<li>Frequent itemsets</li>
+<li>Similar items</li>
+</ul>
+</li>
+</ul>
+<h2 id="Bonferroni’s-Principle-Meaningfulness-of-Analytic-Answers"><a href="#Bonferroni’s-Principle-Meaningfulness-of-Analytic-Answers" class="headerlink" title="Bonferroni’s Principle - Meaningfulness of Analytic Answers"></a>Bonferroni’s Principle - Meaningfulness of Analytic Answers</h2><p>Def.</p>
+<p>If your method of finding significant items returns significantly more items that you would expect in the actual population, you can assume most of the items you find with it are bogus.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><p>Suppose we believe that certain groups of evildoers are meeting occasionally in hotels to plot doing evil. We want to find people who at least twice have stayed at the same hotel on the same day.</p>
+<h3 id="Details"><a href="#Details" class="headerlink" title="Details:"></a>Details:</h3><ul>
+<li>One billion ($10^9$) people being tracked</li>
+<li>1000 days</li>
+<li>Each person stays in a hotel 1% of the time (10 days out of 1000)</li>
+<li>Hotels hold 100 people</li>
+<li>$10^5$ hotels to hold 1% of $10^9$ people</li>
+<li>If everyone behaves randomly, will the data mining detect anything suspicious?</li>
+</ul>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>First, we can calculate the percentage of one specific people $p$ and $q$ will be at the same hotel on given day:<br>$$<br>\frac{1}{10^5} \times \frac{1}{100} \times \frac{1}{100} =<br>10^{-9}<br>$$<br>Then, Probability that p and q will be at same hotel on given day $d_1$ and $d_2$ is:<br>$$<br>10^{-9}\times10^{-9} =<br>10^{-18}<br>$$<br>So, the possible pairs of dates are:<br>$$<br>\binom{1000}{2}<br>=\frac{1000\times999}{2}<br>\approx<br>5 \times 10^5<br>$$<br>And, the possible pairs of people are:<br>$$<br>\binom{10^9}{2}<br>\approx<br>5 \times10^{17}<br>$$<br>Therefore, number of people who at least twice have stayed at the same hotel on the same day is<br>$$<br>10^{-18} \times 5 \times 10^5 \times 5 \times 10^{17} =<br>25 \times 4 =<br>250000<br>$$<br>In conclusion, the result is meaningless, that’s Bonferroni’s Principle.</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://blog.weiliang.li/2016/11/24/INF553-Week1/" data-id="civxba4s500062o7hlnkanxfo" class="article-share-link">Share</a><div class="tags"><a href="/tags/data-mining/">data mining</a></div><div class="post-nav"><a href="/2016/11/24/LatexSample/" class="next">LatexSample</a></div><div data-thread-key="2016/11/24/INF553-Week1/" data-title="INF553-Week1" data-url="http://blog.weiliang.li/2016/11/24/INF553-Week1/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/11/24/INF553-Week1/" data-title="INF553-Week1" data-url="http://blog.weiliang.li/2016/11/24/INF553-Week1/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.weiliang.li"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Course/">Course</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Philosophy/">Philosophy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/Thinking/" style="font-size: 15px;">Thinking</a> <a href="/tags/Street-Wisdom/" style="font-size: 15px;">Street Wisdom</a> <a href="/tags/data-mining/" style="font-size: 15px;">data mining</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/example/" style="font-size: 15px;">example</a> <a href="/tags/philosophy/" style="font-size: 15px;">philosophy</a> <a href="/tags/Me/" style="font-size: 15px;">Me</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/INF553-Week1/">INF553-Week1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/LatexSample/">LatexSample</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/20-Behaviors-to-Make-Yourself-Happy/">20 Behaviors to Make Yourself Happy</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/20/写给现在的我/">写给现在的我</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/seven-social-sins/">Seven Social Sins</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://dongxicheng.org" title="董的博客" target="_blank">董的博客</a><ul></ul><a href="https://github.com/tufu9441/maupassant-hexo" title="Maupassant Document" target="_blank">Maupassant Document</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">william's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a> Copyright © 2016-2017.
+ All Rights Reserved.</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'william'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
