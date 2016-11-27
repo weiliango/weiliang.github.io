@@ -101,6 +101,7 @@
 </ul>
 </li>
 </ul>
+<h2>More about Map Reduce</h2>
 <h3>Data Flow</h3>
 <ul>
 <li>input and final output are stored on a dfs(hdfs)</li>
@@ -108,6 +109,242 @@
 <li>output is often input to another MR task</li>
 </ul>
 <h3>Coordination</h3>
+<ul>
+<li>When a map task completes, it sends the master the ==location and sizes== of its intermediate files, one for each reducer</li>
+<li>Master pushes this info to reducers</li>
+<li>Master pings workers periodically to detect failures</li>
+</ul>
+<h3>Dealing with Failures</h3>
+<ul>
+<li>Map worker failure
+<ul>
+<li>map tasks <strong>completed or in-progress</strong> at worker are reset to idle
+<ul>
+<li>The reason for redoing completed Map tasks is that their output destined for the Reduce tasks resides at that compute node, and is now unavailable to the Reduce tasks</li>
+</ul>
+</li>
+<li>reduce workers are notified when task is rescheduled on another worker</li>
+</ul>
+</li>
+<li>Reduce worker failure
+<ul>
+<li><strong>only in-progress</strong> tasks are reset to idle</li>
+<li>reduce task is restarted</li>
+</ul>
+</li>
+<li>Master failure
+<ul>
+<li>MR task is aborted and client is notified</li>
+</ul>
+</li>
+</ul>
+<h3>How many Map and Reduce jobs?</h3>
+<ul>
+<li>$M$ map tasks, $R$ reduce tasks
+<ul>
+<li>make $M$ much larger than the number of nodes in the cluster</li>
+<li>one DFS chunk per map is common</li>
+<li>improves dynamic load balancing and speeds up recovery from worker failures</li>
+<li>do pipeline shuffling with map execution</li>
+<li>minimizes time fro fault recovery</li>
+</ul>
+</li>
+<li>Usually $R$ is smaller than $M$
+<ul>
+<li>because output is spread across $R$ files
+<ul>
+<li>means: we need to create intermediate files for each Reduce task, so if there's too large $R$, the intermidiate files explode</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Refinements:</h2>
+<h3>Backup Tasks</h3>
+<ul>
+<li>target:
+<ul>
+<li>to solve the problem of slow workers</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>solution:
+<ul>
+<li>near end of phase, spawn backup copies of tasks
+<ul>
+<li>whichever one finishes first &quot;wins&quot;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>effect:
+<ul>
+<li>dramatically shortens job completion time</li>
+</ul>
+</li>
+</ul>
+<h3>Combiners</h3>
+<ul>
+<li>if a combiner is used then the map key-value pairs are not immediately written to the output, they will be collected in lists, one list per each key value</li>
+<li>when a certain number of key-value pairs have been written, this buffer is flushed by passing all the values of each key to the combiners's reduce method and outputting the key-value pairs of the combine operation as if they were created by the original map operation.</li>
+<li><strong>REVIEW: Read The PPT</strong></li>
+</ul>
+<h3>Definition of commutative and associative</h3>
+<h4>commutative</h4>
+<ul>
+<li>if changing the order of the operands does not change the result</li>
+</ul>
+<p>$$
+\forall x,y \in S, x * y = y * x
+$$</p>
+<h4>associative</h4>
+<p>$$
+(x* y)* z = x*(y * z)
+$$</p>
+<h4>example: sum(), max()</h4>
+<h3>Partition Function</h3>
+<p>control how keys get partitioned</p>
+<ul>
+<li>inputs to map tasks are created by contiguous splits of input file</li>
+<li>Reducer needs to ensure that records with the same intermediate key end up at the same worker</li>
+</ul>
+<p>default partition function, can be override
+$$
+hash(key) \mod{R}
+$$</p>
+<h2>Problem suitable for MapReduce</h2>
+<ul>
+<li>Don't need fast response time</li>
+<li>Good for applications that work in batch mode
+<ul>
+<li>run without human interaction</li>
+<li>runs over entire data set</li>
+</ul>
+</li>
+<li>suited for data can be extracted as key-value without losing context, dependencies
+<ul>
+<li>graph is hard</li>
+<li>implicit relationships</li>
+</ul>
+</li>
+</ul>
+<h2>Cost Measures for MapReduce</h2>
+<ol>
+<li>Communication cost = total I/O of all processes
+<ul>
+<li>input file size +</li>
+<li>sum of the sizes of all files passed from map to reduce +</li>
+<li>sum of output sizes of reduce</li>
+</ul>
+</li>
+<li>Elapsed communication cost = max of I/O along any path
+<ul>
+<li>largest input +
+<ul>
+<li>s could be
+<ul>
+<li>what fits in memory</li>
+<li>what fits on local disk</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>output for any map process +</li>
+<li>output for any reduce process</li>
+</ul>
+</li>
+<li>(Elapsed) computation cost analogous, but count only running time of processes</li>
+</ol>
+<h3>What Cost Measures Mean</h3>
+<ul>
+<li>
+<p>Either the communication or computation cost dominates</p>
+<ul>
+<li>ignore one or the other</li>
+</ul>
+</li>
+<li>
+<p>With proper indexes, computation cost is linear in the (input+output) size</p>
+<p>​</p>
+</li>
+</ul>
+<h2>Introduction of SPARK</h2>
+<p><strong>Apache Spark</strong> is an open source cluster computing framework</p>
+<p>Application areas:</p>
+<ul>
+<li>Batch processing</li>
+<li>Interactive data query</li>
+<li>Real-time data analysis</li>
+</ul>
+<h3>SPARK VS. HADOOP</h3>
+<ul>
+<li>Faster(10x on disk, 100x in memory)
+<ul>
+<li>without wring to persistent storage</li>
+<li>in-memory caching abstraction</li>
+<li>better for algorithms with iterations</li>
+</ul>
+</li>
+<li>ecosystem is simple</li>
+</ul>
+<h3>Advantages</h3>
+<ul>
+<li>easy to use</li>
+<li>runs everywhere</li>
+<li>generality - combine sql, streaming….</li>
+<li>REPL - interactive command line</li>
+<li>one stack rules all</li>
+</ul>
+<h3>RDD</h3>
+<p>RDDs are fault-tolerant, parallel data structures that let users explicityly  <em>persist intermediate results in memory</em>, <em>control their partitioning to optimize data placement</em>, and <em>manipulate them using a rich set of operators</em></p>
+<h4>two operations in RDD</h4>
+<ul>
+<li>Transformation
+<ul>
+<li>return new RDD</li>
+</ul>
+</li>
+<li>Action
+<ul>
+<li>return value</li>
+<li>e.g. first(), count()</li>
+</ul>
+</li>
+</ul>
+<h3>Driver Program: SparkContext</h3>
+<ul>
+<li>every application consists of a driver program that launches various parallel operations</li>
+<li>the driver program contains your app's main function and defines distributed datasets</li>
+</ul>
+<h3>Important Concepts:</h3>
+<ul>
+<li>worker: the nodes which can run applications in a cluster</li>
+<li>executer: worker nodes' processes used to running individual tasks</li>
+<li>job: triggered by action operator, consisting of server tasks</li>
+<li>task: a work unit which is sent to executor</li>
+<li>stage: job is divided into several sets of tasks, each set is a stage</li>
+</ul>
+<h3>diff reduceByKey vs groupByKey</h3>
+<ul>
+<li>same result</li>
+<li>reduceByKey more efficient, reduces some unnessary shuffle</li>
+</ul>
+<h2>Scala</h2>
+<p>Feature:</p>
+<ul>
+<li>statically typed</li>
+<li>runs on JVM, full inter-op with Java</li>
+<li>Object Oriented</li>
+<li>Functional</li>
+<li>Dynamic Features</li>
+</ul>
+<p>Practical:</p>
+<ul>
+<li>can be used to replace Java - Mixed Scala/Java projects</li>
+<li>use existing Java libraries</li>
+<li>use existing Java tools</li>
+</ul>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://blog.weiliang.li/2016/11/25/INF553-Week2/" data-id="civzn2s2s0001kh7hj38p7f0t" class="article-share-link">Share</a><div class="tags"><a href="/tags/data-mining/">data mining</a></div><div class="post-nav"><a href="/2016/11/26/随想/" class="pre">随想</a><a href="/2016/11/24/INF553-Week1/" class="next">INF553-Week1</a></div><div data-thread-key="2016/11/25/INF553-Week2/" data-title="INF553-Week2" data-url="http://blog.weiliang.li/2016/11/25/INF553-Week2/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/11/25/INF553-Week2/" data-title="INF553-Week2" data-url="http://blog.weiliang.li/2016/11/25/INF553-Week2/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.weiliang.li"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Course/">Course</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Philosophy/">Philosophy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/data-mining/" style="font-size: 15px;">data mining</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/example/" style="font-size: 15px;">example</a> <a href="/tags/Thinking/" style="font-size: 15px;">Thinking</a> <a href="/tags/Street-Wisdom/" style="font-size: 15px;">Street Wisdom</a> <a href="/tags/philosophy/" style="font-size: 15px;">philosophy</a> <a href="/tags/Me/" style="font-size: 15px;">Me</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/随想/">随想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/25/INF553-Week2/">INF553-Week2</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/INF553-Week1/">INF553-Week1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/LatexSample/">LatexSample</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/23/20-Behaviors-to-Make-Yourself-Happy/">20 Behaviors to Make Yourself Happy</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/20/写给现在的我/">写给现在的我</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/seven-social-sins/">Seven Social Sins</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://dongxicheng.org" title="董的博客" target="_blank">董的博客</a><ul></ul><a href="https://github.com/tufu9441/maupassant-hexo" title="Maupassant Document" target="_blank">Maupassant Document</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">william's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a> Copyright © 2016-2017.
  All Rights Reserved.</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'william'};
 (function() {
