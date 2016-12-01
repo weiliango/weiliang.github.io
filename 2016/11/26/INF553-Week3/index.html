@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>INF553-Week3 | william's blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="images/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">INF553-Week3</h1><a id="logo" href="/.">william's blog</a><p class="description">~做一只聪明的乌龟</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">INF553-Week3</h1><div class="post-meta">Nov 26, 2016<span> | </span><span class="category"><a href="/categories/Course/">Course</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/11/26/INF553-Week3/" href="/2016/11/26/INF553-Week3/#comments" class="ds-thread-count"></a><div class="post-content"><h1>Frequent Itemsets and Association Rules</h1>
+<h3>Outline:</h3>
+<ul>
+<li>Introduce market-basket model of data</li>
+<li>Define frequent itemsets</li>
+<li>Discover association rules
+<ul>
+<li>Confidence and interest of rules</li>
+</ul>
+</li>
+<li>A-Priori Alg. and variations</li>
+</ul>
+<h2>The Market-Basket Model</h2>
+<ul>
+<li>Really a general many-many mapping(association) between two kinds of things: items and baskets</li>
+<li>focus on common events, not rare events
+<ul>
+<li>don't need to focus on identifying all association rules</li>
+<li>focus on common events, focus pricing strategies or product recommendations</li>
+</ul>
+</li>
+</ul>
+<h3>market basket application examples:</h3>
+<ul>
+<li>Plagiarism detection
+<ul>
+<li>Look for items that appear together in serveral baskets
+<ul>
+<li>Multiple documents share sentence</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Identify related concepts in web documents
+<ul>
+<li>Look for sets of words that appear together in many documents</li>
+<li>Ignore most common words</li>
+</ul>
+</li>
+<li>Drug interactions
+<ul>
+<li>detect combinations of drugs that result in particular side-effects</li>
+<li>but requires extension: absence of an item needs to be observed as well as presence</li>
+</ul>
+</li>
+</ul>
+<h2>Define Frequent Itemsets</h2>
+<p><em>Support for itemset I</em> = the number of baskets containing all items in I</p>
+<p>Given a <em>support threshold s</em>, sets of items that appear in at least s baskets are called <em>frequent item sets</em></p>
+<h2>Association Rules</h2>
+<p>Rule ${i_{1}, i_{2}, …, i_{k}} \to j$ means: if a basket contains all of $i_{1}, i_{2}, …, i_{k}$, then it is likely to contain j</p>
+<h3>Confidence</h3>
+<p>Ratio of support for $I \cup {j}$ with support for I</p>
+<p>$\to$ want to identify association rules with high confidence</p>
+<p>but, not all high-confidence rules are interesting</p>
+<p>$\to$ interest of an association rule $I \to j$: difference between its confidence and the fraction of baskets that contain j</p>
+<ul>
+<li>High positive/negative interest means presence of $I$ encourages or discourages presence of $j$</li>
+<li>interesting rules are those with high positive or negative interest values(usually above 0.5)</li>
+</ul>
+<h3>Finding Useful Association Rules</h3>
+<p>target: find all association rules with $support \ge s$ and $confidence \ge c$</p>
+<p>if  ${i_{1}, i_{2}, …, i_{k}} \to j$ has high support and confidence, then both ${i_{1}, i_{2}, …, i_{k}}$ and ${i_{1}, i_{2}, …, i_{k}, j}$ will be frequent</p>
+<h2>Find Frequent Itemsets</h2>
+<h3>computation model</h3>
+<ul>
+<li>typically, market basket data are kept in flat files rather than in a database</li>
+<li>use k nested loopt to generate all sets of size k</li>
+<li>$generate \to count \to frequent Itemsets$</li>
+<li>boundaries between baskets are -1</li>
+<li>measure the cost by the number of passes an algorithm takes</li>
+</ul>
+<h3>Bottleneck</h3>
+<ul>
+<li>memory $\to$ hardest problem is to find the frequent pairs</li>
+<li>naive alg. $\binom{n}{2}$, fails if $items^2$ exceeds main memory
+<ul>
+<li>two approaches
+<ul>
+<li>count all pairs, using a triangular matrix</li>
+<li>keep a table of</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Algorithm</h2>
+<ul>
+<li>PCY
+<ul>
+<li>we cannot renumber the items in PCY, it's random, so we cannot use Triangular</li>
+<li>before first Pass, use the memory to hash the pairs and use a bit map for optimize</li>
+</ul>
+</li>
+<li>Multistage
+<ul>
+<li>after Pass 1 of PCY, rehash only those pairs that qualify for Pass 2 of PCY</li>
+<li>need check every Bitmap</li>
+<li>two hashfunction has to be independent</li>
+</ul>
+</li>
+<li>Son
+<ul>
+<li>就是利用单调性，如果一个item freqent，那它至少在一个子集里面frequent</li>
+<li>用mapreduce，把至少在一个子集里frequent的作为candidate</li>
+<li>第二个phase，再跑一遍测试</li>
+</ul>
+</li>
+<li>Toivonen
+<ul>
+<li>没有frequent，会死循环</li>
+<li>构建negative border，如果里面有frequent，重新sampling</li>
+</ul>
+</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://blog.weiliang.li/2016/11/26/INF553-Week3/" data-id="ciw60apf6000le47hxmfwehj5" class="article-share-link">Share</a><div class="tags"><a href="/tags/data-mining/">data mining</a></div><div class="post-nav"><a href="/2016/11/27/随想-1/" class="pre">随想</a><a href="/2016/11/26/随想/" class="next">随想</a></div><div data-thread-key="2016/11/26/INF553-Week3/" data-title="INF553-Week3" data-url="http://blog.weiliang.li/2016/11/26/INF553-Week3/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/11/26/INF553-Week3/" data-title="INF553-Week3" data-url="http://blog.weiliang.li/2016/11/26/INF553-Week3/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.weiliang.li"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Course/">Course</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Philosophy/">Philosophy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Time/">Time</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/data-mining/" style="font-size: 15px;">data mining</a> <a href="/tags/Thinking/" style="font-size: 15px;">Thinking</a> <a href="/tags/Street-Wisdom/" style="font-size: 15px;">Street Wisdom</a> <a href="/tags/latex/" style="font-size: 15px;">latex</a> <a href="/tags/example/" style="font-size: 15px;">example</a> <a href="/tags/philosophy/" style="font-size: 15px;">philosophy</a> <a href="/tags/Me/" style="font-size: 15px;">Me</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/随想-3/">随想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/29/INF553-Quizs/">INF553-Quizs</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/29/INF553-Week12-13/">INF553-Week12&13</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/29/INF553-Week14/">INF553-Week14</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/29/time/">time</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/29/随想-2/">随想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/随想-1/">随想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/INF553-Week3/">INF553-Week3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/随想/">随想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/25/INF553-Week2/">INF553-Week2</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://dongxicheng.org" title="董的博客" target="_blank">董的博客</a><ul></ul><a href="https://github.com/tufu9441/maupassant-hexo" title="Maupassant Document" target="_blank">Maupassant Document</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">william's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"></a> Copyright © 2016-2017.
+ All Rights Reserved.</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'william'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
