@@ -4,13 +4,35 @@
  <title>Starlit Sky</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-03T12:29:51-07:00</updated>
+ <updated>2017-05-03T14:03:40-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Tree_Part1</title>
+   <link href="http://localhost:4000/2017/05/03/tree-part1/"/>
+   <updated>2017-05-03T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2017/05/03/tree-part1</id>
+   <content type="html">&lt;h1 id=&quot;104-maximum-depth-of-binary-tree&quot;&gt;104. Maximum Depth of Binary Tree&lt;/h1&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
+
+&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Greedy_Part1</title>
