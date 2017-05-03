@@ -11,7 +11,7 @@
 
   <title>
     
-      Greedy &middot; Starlit Sky
+      Greedy_Part1 &middot; Starlit Sky
     
   </title>
 
@@ -95,7 +95,7 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">Greedy</h1>
+  <h1 class="post-title">Greedy_Part1</h1>
   <span class="post-date">03 May 2017</span>
   <h1 id="122-best-time-to-buy-and-sell-stock-ii">122. Best Time to Buy and Sell Stock II</h1>
 
@@ -233,11 +233,10 @@ You cannot assign more than one cookie to one child.</p>
 			<span class="k">if</span> <span class="o">(</span> <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">g</span><span class="o">[</span><span class="n">p</span><span class="o">]</span> <span class="o">)</span> <span class="o">{</span>
 				<span class="n">p</span><span class="o">++;</span>
 				<span class="k">if</span> <span class="o">(</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="n">g</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
-					<span class="n">re</span>
+					<span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
 				<span class="o">}</span>
 			<span class="o">}</span>
 		<span class="o">}</span>
-
 		<span class="k">return</span> <span class="n">p</span><span class="o">;</span>
 	<span class="o">}</span>
 <span class="o">}</span>
@@ -246,6 +245,158 @@ You cannot assign more than one cookie to one child.</p>
 
 <h2 id="comments-2">Comments</h2>
 
+<p>In each step, assign the smallest cookie to the child who need a minimum size to be content with.</p>
+
+<h1 id="55-jump-game">55. Jump Game</h1>
+
+<h2 id="description-3">Description</h2>
+
+<p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
+
+<p>Each element in the array represents your maximum jump length at that position.</p>
+
+<p>Determine if you are able to reach the last index.</p>
+
+<h2 id="code-3">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canJump</span><span class="o">(</span><span class="kt">int</span> <span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+				<span class="k">while</span> <span class="o">(</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+					<span class="k">if</span> <span class="o">(</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">-</span> <span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+						<span class="k">break</span><span class="o">;</span>
+					<span class="o">}</span>
+					<span class="n">j</span><span class="o">--;</span>
+				<span class="o">}</span>
+				<span class="k">if</span> <span class="o">(</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+					<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>	
+				<span class="o">}</span>
+			<span class="o">}</span>			
+		<span class="o">}</span>
+
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments-3">Comments</h2>
+
+<p>This question can be converted to whether or not to jump over every position valued of 0. You need to consider the following things:</p>
+
+<ol>
+  <li>can every 0 be jumped</li>
+  <li>what will happen the 0 located at the tail of nums</li>
+  <li>what will happen when 0 located at the start</li>
+</ol>
+
+<h1 id="253-meeting-rooms-ii">253. Meeting Rooms II</h1>
+
+<h2 id="description-4">Description</h2>
+
+<p>Given an array of meeting time intervals consisting of start and end times <code class="highlighter-rouge">[[s1,e1],[s2,e2],...]</code> (si &lt; ei), find the minimum number of conference rooms required.</p>
+
+<h2 id="code-4">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
+<span class="cm">/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">minMeetingRooms</span><span class="o">(</span><span class="n">Interval</span><span class="o">[]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">intervals</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;()</span> <span class="o">{</span>
+			<span class="nd">@Override</span>
+			<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Interval</span> <span class="n">i1</span><span class="o">,</span> <span class="n">Interval</span> <span class="n">i2</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">return</span> <span class="n">i1</span><span class="o">.</span><span class="na">start</span> <span class="o">-</span> <span class="n">i2</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">});</span>
+
+		<span class="kt">int</span> <span class="n">rooms</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+		<span class="k">while</span><span class="o">(</span> <span class="n">count</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="n">rooms</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span> <span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+					<span class="k">if</span> <span class="o">(</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">start</span> <span class="o">&gt;=</span> <span class="n">end</span> <span class="o">)</span> <span class="o">{</span>
+						<span class="n">end</span> <span class="o">=</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">end</span><span class="o">;</span>
+						<span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+						<span class="n">count</span><span class="o">--;</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>   
+
+		<span class="k">return</span> <span class="n">rooms</span><span class="o">;</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments-4">Comments</h2>
+
+<ol>
+  <li>sort the intervals by its start time</li>
+  <li>from the start to tail, if the slot of one interval has no conflict, remove the interval from the array(set to null)</li>
+  <li>continue the loop, until the array is empty</li>
+  <li>return the times of the loop</li>
+</ol>
+
+<h1 id="376-wiggle-subsequence">376. Wiggle Subsequence</h1>
+
+<h2 id="description-5">Description</h2>
+
+<p>A sequence of numbers is called a <strong>wiggle sequence</strong> if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence.</p>
+
+<p>For example, <code class="highlighter-rouge">[1,7,4,9,2,5]</code> is a wiggle sequence because the differences (6,-3,5,-7,3) are alternately positive and negative. In contrast, <code class="highlighter-rouge">[1,4,7,2,5]</code> and <code class="highlighter-rouge">[1,7,4,5,5]</code> are not wiggle sequences, the first because its first two differences are positive and the second because its last difference is zero.</p>
+
+<p>Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.</p>
+
+<h2 id="code-5">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">wiggleMaxLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+	    <span class="k">if</span> <span class="o">(</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    	<span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    	<span class="kt">int</span> <span class="n">neg</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    	<span class="kt">int</span> <span class="n">pflag</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    	<span class="kt">int</span> <span class="n">nflag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+    	<span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+    		<span class="k">if</span> <span class="o">(</span> <span class="n">pflag</span> <span class="o">*</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+    			<span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    			<span class="n">pflag</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    		<span class="o">}</span> 
+    		<span class="k">if</span> <span class="o">(</span> <span class="n">nflag</span> <span class="o">*</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+    			<span class="n">neg</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    			<span class="n">nflag</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    		<span class="o">}</span> 
+    	<span class="o">}</span>
+
+    	<span class="k">return</span> <span class="o">(</span><span class="n">pos</span> <span class="o">&gt;</span> <span class="n">neg</span> <span class="o">?</span> <span class="n">pos</span> <span class="o">:</span> <span class="n">neg</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments-5">Comments</h2>
+
+<p>Every number is equal in this question, so that the first number must be selected. Then, we can easily find here’s two routes, one is a positive route the other is negative route. Start from the two routes, we can compare every numbers adjacent, if it fulfill the requirement of any route, add it to the route. By the way, we can create an algorithm like this also based on the monotonicity of numbers.</p>
 
 </div>
 

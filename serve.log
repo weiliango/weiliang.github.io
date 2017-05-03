@@ -23,3 +23,27 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
        Destination: /home/weiliang/Projects/Pahrump/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
+                    done in 0.194 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+jekyll 3.4.3 | Error:  Address already in use - bind(2) for 127.0.0.1:4000
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 0.521 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:15:28 ...done in 0.090918455 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:18:00 ...done in 0.079100969 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:19:58 ...done in 0.051623229 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:23:34 ...done in 0.092217962 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:28:13 ...done in 0.084045702 seconds.
+      Regenerating: 2 file(s) changed at 2017-05-03 12:29:11 ...done in 0.087289471 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:29:46 ...done in 0.083938757 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:29:50 ...done in 0.079163777 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-03 12:29:51 
