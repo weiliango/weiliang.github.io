@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Starlit Sky</title>
- <link href="http://lanyon.getpoole.com/atom.xml" rel="self"/>
- <link href="http://lanyon.getpoole.com/"/>
- <updated>2017-05-02T23:08:29-07:00</updated>
- <id>http://lanyon.getpoole.com</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2017-05-03T11:16:21-07:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
@@ -13,135 +13,118 @@
 
  
  <entry>
-   <title>Example content</title>
-   <link href="http://lanyon.getpoole.com/2014/01/01/example-content/"/>
-   <updated>2014-01-01T00:00:00-08:00</updated>
-   <id>http://lanyon.getpoole.com/2014/01/01/example-content</id>
-   <content type="html">&lt;div class=&quot;message&quot;&gt;
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+   <title>Greedy</title>
+   <link href="http://localhost:4000/2017/05/03/greedy/"/>
+   <updated>2017-05-03T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2017/05/03/greedy</id>
+   <content type="html">&lt;h1 id=&quot;122-best-time-to-buy-and-sell-stock-ii&quot;&gt;122. Best Time to Buy and Sell Stock II&lt;/h1&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Say you have an array for which the &lt;em&gt;i&lt;/em&gt;th element is the price of a given stock on day &lt;em&gt;i&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;maxProfit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;profit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+&lt;h2 id=&quot;comments&quot;&gt;Comments&lt;/h2&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Very easy Greedy Algorithm. If the price at the &lt;strong&gt;step n+1&lt;/strong&gt; is bigger than the &lt;strong&gt;step n&lt;/strong&gt;, than we buy the stock at n. And vise versa, we sell the stock.&lt;/p&gt;
 
-&lt;p&gt;Etiam porta &lt;strong&gt;sem malesuada magna&lt;/strong&gt; mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
+&lt;p&gt;For the input, if the length &amp;lt; 2, means there are 0 or 1 price info. However, in this two situations, we can get no profit. So return 0.&lt;/p&gt;
 
-&lt;h2 id=&quot;inline-html-elements&quot;&gt;Inline HTML elements&lt;/h2&gt;
+&lt;h1 id=&quot;134-gas-station&quot;&gt;134. Gas Station&lt;/h1&gt;
 
-&lt;p&gt;HTML defines a long list of available inline tags, a complete list of which can be found on the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;description-1&quot;&gt;Description&lt;/h2&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;To bold text&lt;/strong&gt;, use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code class=&quot;highlighter-rouge&quot;&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
-  &lt;li&gt;Citations, like &lt;cite&gt;— Mark otto&lt;/cite&gt;, should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;There are &lt;em&gt;N&lt;/em&gt; gas stations along a circular route, where the amount of gas at station &lt;em&gt;i&lt;/em&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;gas[i]&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Most of these elements are styled by browsers with few modifications on our part.&lt;/p&gt;
+&lt;p&gt;You have a car with an unlimited gas tank and it costs &lt;code class=&quot;highlighter-rouge&quot;&gt;cost[i]&lt;/code&gt; of gas to travel from station &lt;em&gt;i&lt;/em&gt; to its next station (&lt;em&gt;i&lt;/em&gt;+1). You begin the journey with an empty tank at one of the gas stations.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading&quot;&gt;Heading&lt;/h2&gt;
+&lt;p&gt;Return the starting gas station’s index if you can travel around the circuit once, otherwise return -1.&lt;/p&gt;
 
-&lt;p&gt;Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;
+The solution is guaranteed to be unique.&lt;/p&gt;
 
-&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+&lt;h2 id=&quot;code-1&quot;&gt;Code&lt;/h2&gt;
 
-&lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code class=&quot;highlighter-rouge&quot;&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;canCompleteCircuit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example can be run directly in your JavaScript console
-&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tank&lt;/span&gt; 	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumGas&lt;/span&gt; 	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumCost&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;// Create a function that takes two arguments and returns the sum of those arguments
-&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;return a + b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;// Call the function
-&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// &amp;gt; 8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+			&lt;span class=&quot;n&quot;&gt;sumCost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;sumGas&lt;/span&gt; 	&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
 
-&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
+			&lt;span class=&quot;n&quot;&gt;tank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;	
 
-&lt;h3 id=&quot;lists&quot;&gt;Lists&lt;/h3&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;tank&lt;/span&gt; 	&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/p&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumGas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sumCost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Praesent commodo cursus magna, vel scelerisque nisl consectetur et.&lt;/li&gt;
-  &lt;li&gt;Donec id elit non mi porta gravida at eget metus.&lt;/li&gt;
-  &lt;li&gt;Nulla vitae elit libero, a pharetra augue.&lt;/li&gt;
-&lt;/ul&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-&lt;p&gt;Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.&lt;/p&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Vestibulum id ligula porta felis euismod semper.&lt;/li&gt;
-  &lt;li&gt;Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&lt;/li&gt;
-  &lt;li&gt;Maecenas sed diam eget risus varius blandit sit amet non magna.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;comments-1&quot;&gt;Comments&lt;/h2&gt;
 
-&lt;p&gt;Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.&lt;/p&gt;
+&lt;p&gt;It’s a good question.&lt;/p&gt;
 
-&lt;dl&gt;
-  &lt;dt&gt;HyperText Markup Language (HTML)&lt;/dt&gt;
-  &lt;dd&gt;The language used to describe and define the content of a Web page&lt;/dd&gt;
+&lt;p&gt;First, think about a situation if we start at &lt;script type=&quot;math/tex&quot;&gt;station_p&lt;/script&gt; and when we reach &lt;script type=&quot;math/tex&quot;&gt;station_q&lt;/script&gt;, we use up the oil in our tank and thus we cannot reach the &lt;script type=&quot;math/tex&quot;&gt;station_{q+1}&lt;/script&gt;.&lt;/p&gt;
 
-  &lt;dt&gt;Cascading Style Sheets (CSS)&lt;/dt&gt;
-  &lt;dd&gt;Used to describe the appearance of Web content&lt;/dd&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(1.1)\ In\ such\ situation,\ we\ assume\ that\ we\ start\ at\ every\ station\ between\ [station_p,station_q]\ cannot\ reach\ station_{q+1}.\&lt;/script&gt;
 
-  &lt;dt&gt;JavaScript (JS)&lt;/dt&gt;
-  &lt;dd&gt;The programming language used to build advanced Web sites and applications&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;h3 id=&quot;proof-of-11&quot;&gt;Proof of (1.1)&lt;/h3&gt;
 
-&lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+&lt;p&gt;In this case, we can introduce a &lt;script type=&quot;math/tex&quot;&gt;station_r&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+p &lt;= r &lt;= q %]]&gt;&lt;/script&gt;, from the question, we know when we reach q, we use up all the oil, so:&lt;/p&gt;
 
-&lt;h3 id=&quot;tables&quot;&gt;Tables&lt;/h3&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\sum_{i=p}^{q}(oil_i - cost_i) &lt; 0 %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+&lt;p&gt;because p can reach r, we can get the following:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Upvotes&lt;/th&gt;
-      &lt;th&gt;Downvotes&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tfoot&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Totals&lt;/td&gt;
-      &lt;td&gt;21&lt;/td&gt;
-      &lt;td&gt;23&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tfoot&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Alice&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;11&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Bob&lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Charlie&lt;/td&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=p}^{r}(oil_i - cost_i) &gt;= 0&lt;/script&gt;
 
-&lt;p&gt;Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+&lt;p&gt;as:&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\sum_{i=p}^{q}(oil_i - cost_i) = \sum_{i=p}^{r}(oil_i - cost_i) + \sum_{i=r}^{q}(oil_i - cost_i) &lt; 0\\
+=&gt;
+\sum_{i=r}^{q}(oil_i - cost_i) &lt; 0 %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;Want to see something else added? &lt;a href=&quot;https://github.com/poole/poole/issues/new&quot;&gt;Open an issue.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;thus, from &lt;script type=&quot;math/tex&quot;&gt;station_r&lt;/script&gt; we cannot reach &lt;script type=&quot;math/tex&quot;&gt;station_{q+1}&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;implementation-of-the-algorithm&quot;&gt;Implementation of the algorithm&lt;/h3&gt;
 </content>
  </entry>
  
