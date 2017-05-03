@@ -4,7 +4,7 @@
  <title>Starlit Sky</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-03T16:19:25-07:00</updated>
+ <updated>2017-05-03T16:23:03-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
@@ -44,9 +44,6 @@
 
 &lt;h2 id=&quot;description-1&quot;&gt;Description&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/1493853562952.png&quot; alt=&quot;1493853562952&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../assets/1493853555560.png&quot; alt=&quot;1493853529864&quot; /&gt;&lt;/p&gt;
 </content>
  </entry>
  
