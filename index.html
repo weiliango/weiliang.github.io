@@ -191,6 +191,8 @@ The solution is guaranteed to be unique.</p>
 
 <script type="math/tex; mode=display">(1.1)\ In\ such\ situation,\ we\ assume\ that\ we\ start\ at\ every\ station\ between\ [station_p,station_q]\ cannot\ reach\ station_{q+1}.\</script>
 
+<script type="math/tex; mode=display">(1.2) If \ \sum(oil-cost)>=0, there\ must\ be \ one \ solution</script>
+
 <h3 id="proof-of-11">Proof of (1.1)</h3>
 
 <p>In this case, we can introduce a <script type="math/tex">station_r</script> and <script type="math/tex">% <![CDATA[
@@ -213,6 +215,45 @@ p <= r <= q %]]></script>, from the question, we know when we reach q, we use up
 <p>thus, from <script type="math/tex">station_r</script> we cannot reach <script type="math/tex">station_{q+1}</script></p>
 
 <h3 id="implementation-of-the-algorithm">Implementation of the algorithm</h3>
+
+<p>In the question, the answer has been guaranteed to be unique, thus, we can start from index=0, if we fail at p, it means we can discard any station between <script type="math/tex">[station_0,station_p]</script>, thus we reset the index to <script type="math/tex">p_{n+1}</script>. Continue this loop, until we reach the end of the array. If <script type="math/tex">\sum(oil-cost)>0</script>,return index, else return -1, means no solution.</p>
+
+<h1 id="455-assign-cookies">455. Assign Cookies</h1>
+
+<h2 id="description-2">Description</h2>
+
+<p>Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &gt;= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.</p>
+
+<p><strong>Note:</strong>
+You may assume the greed factor is always positive. 
+You cannot assign more than one cookie to one child.</p>
+
+<h2 id="code-2">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">findContentChildren</span><span class="o">(</span><span class="kt">int</span> <span class="o">[]</span> <span class="n">g</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span> <span class="n">g</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">g</span><span class="o">);</span>
+		<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+
+		<span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span> <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">g</span><span class="o">[</span><span class="n">p</span><span class="o">]</span> <span class="o">)</span> <span class="o">{</span>
+				<span class="n">p</span><span class="o">++;</span>
+				<span class="k">if</span> <span class="o">(</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="n">g</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">re</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+
+		<span class="k">return</span> <span class="n">p</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments-2">Comments</h2>
+
 
   </div>
   
