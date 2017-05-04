@@ -40,7 +40,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar" style="background-image: url('../public/MilkyWay-Sidebar.jpg');background-size: 170% 100%;">
   <div class="sidebar-item">
-    <p>I will never forget the stars shining in the dark, as well as your eyes which are even more brighter. You are the best thing that ever happened to me.</p>
+    <p>I will never forget the stars shining in the dark, as well as your eyes which are brighter more than one hundred times. You are the best thing that ever happened to me.</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -299,6 +299,57 @@
     <p>use a static value</p>
   </li>
 </ul>
+
+<h1 id="100-same-tree">100. Same Tree</h1>
+
+<h2 id="description-3">Description</h2>
+
+<p>Given two binary trees, write a function to check if they are equal or not.</p>
+
+<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
+
+<h2 id="code-3">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSameTree</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">p</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+
+    	<span class="k">if</span><span class="o">(</span> <span class="n">p</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">q</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    	<span class="k">if</span><span class="o">(</span> <span class="n">p</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">q</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+
+    	<span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span> <span class="o">==</span> <span class="n">q</span><span class="o">.</span><span class="na">val</span> <span class="o">?</span> <span class="n">isSameTree</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">q</span><span class="o">.</span><span class="na">left</span><span class="o">)</span> 
+          <span class="o">&amp;&amp;</span> <span class="n">isSameTree</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">q</span><span class="o">.</span><span class="na">right</span><span class="o">)</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments-1">Comments</h2>
+
+<p>Beautiful Code!</p>
+
+<h1 id="235-lowest-common-ancestor-of-a-binary-search-tree">235. Lowest Common Ancestor of a Binary Search Tree</h1>
+
+<h2 id="description-4">Description</h2>
+
+<p>Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.</p>
+
+<p>According to the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a>: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow <strong>a node to be a descendant of itself</strong>).”</p>
+
+<h2 id="code-4">Code</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+</code></pre>
+</div>
+
 
 </div>
 
