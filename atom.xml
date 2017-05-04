@@ -4,13 +4,145 @@
  <title>Starlit Sky</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-03T20:45:50-07:00</updated>
+ <updated>2017-05-04T11:52:01-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>yaml</title>
+   <link href="http://localhost:4000/2017/05/04/yaml/"/>
+   <updated>2017-05-04T00:00:00-07:00</updated>
+   <id>http://localhost:4000/2017/05/04/yaml</id>
+   <content type="html">&lt;h1 id=&quot;simple-bash-implementation&quot;&gt;Simple Bash Implementation&lt;/h1&gt;
+
+&lt;h2 id=&quot;parse-function&quot;&gt;Parse function&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+parse_yaml&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'[[:space:]]*'&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'[a-zA-Z0-9_]*'&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; @|tr @ &lt;span class=&quot;s1&quot;&gt;'\034'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+   sed -ne &lt;span class=&quot;s2&quot;&gt;&quot;s|^&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)\(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$w&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;\(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)\&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\$&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\1&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fs&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\2&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fs&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\3&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|p&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+        -e &lt;span class=&quot;s2&quot;&gt;&quot;s|^&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)\(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$w&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\$&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\1&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fs&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\2&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fs&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\3&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|p&quot;&lt;/span&gt;  &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; |
+   awk -F&lt;span class=&quot;nv&quot;&gt;$fs&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i &amp;gt; indent) {delete vname[i]}}
+      if (length($3) &amp;gt; 0) {
+         vn=&quot;&quot;; for (i=0; i&amp;lt;indent; i++) {vn=(vn)(vname[i])(&quot;_&quot;)}
+         printf(&quot;%s%s%s=\&quot;%s\&quot;\n&quot;, &quot;'&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$prefix&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&quot;,vn, $2, $3);
+      }
+   }'&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;yaml-sample&quot;&gt;Yaml Sample&lt;/h2&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my_database&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;root&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;test-case&quot;&gt;Test Case&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# include parse_yaml function&lt;/span&gt;
+. parse_yaml.sh
+
+&lt;span class=&quot;c&quot;&gt;# read yaml file&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;parse_yaml zconfig.yml &lt;span class=&quot;s2&quot;&gt;&quot;config_&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# access yaml content&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$config_development_database&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;source&quot;&gt;Source&lt;/h1&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;YAML Resources&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML 1.2 (3rd Edition)&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://yaml.org/spec/1.2/spec.html&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML 1.1 (2nd Edition)&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://yaml.org/spec/1.1/&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML 1.0 (1st Edition)&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://yaml.org/spec/1.0/&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML Issues Page&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://github.com/yaml/yaml/issues&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML Mailing List&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml-core@lists.sourceforge.net&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML IRC Channel&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;#yaml&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;irc.freenode.net&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML Cookbook (Ruby)&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://yaml4r.sourceforge.net/cookbook/ (local)&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;YAML Reference Parser&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://ben-kiki.org/ypaste/&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;Projects&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;C/C++ Libraries&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;libyaml&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# &quot;C&quot; Fast YAML 1.1&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Syck&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# (dated) &quot;C&quot; YAML 1.0&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml-cpp&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# C++ YAML 1.2 implementation&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;psych&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# libyaml wrapper (in Ruby core for 1.9.2)&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;RbYaml&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# YAML 1.1 (PyYAML Port)&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml4r&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# YAML 1.0, standard library syck binding&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Python&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PyYAML&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# YAML 1.1, pure python and libyaml binding&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruamel.yaml&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# YAML 1.2, update of PyYAML with round-tripping of comments&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PySyck&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# YAML 1.0, syck binding&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Java&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JvYaml&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# Java port of RbYaml&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;SnakeYAML&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# Java 5 / YAML 1.1&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YamlBeans&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# To/from JavaBeans&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JYaml&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# Original Java Implementation&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Perl Modules&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YAML&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# Pure Perl YAML Module&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YAML::XS&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# Binding to libyaml&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YAML::Syck&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# Binding to libsyck&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YAML::Tiny&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# A small YAML subset module&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PlYaml&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# Perl port of PyYAML&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;C#/.NET&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YamlDotNet&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# YAML 1.1 library with serialization support&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml-net&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# YAML 1.1 library&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yatools.net&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# (in-progress) YAML 1.1 implementation&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Golang&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Go-yaml&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# YAML support for the Go language.&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Go-gypsy&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# Simplified YAML parser written in Go.&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;PHP&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;php-yaml&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# libyaml bindings (YAML 1.1)&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;syck&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# syck bindings (YAML 1.0)&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;spyc&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# yaml loader/dumper (YAML 1.?)&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;OCaml&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ocaml-syck&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# YAML 1.0 via syck bindings&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Javascript&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JS-YAML&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# Native PyYAML port to JavaScript.&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JS-YAML Online# Browserified JS-YAML demo, to play with YAML in your browser.&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Actionscript&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;as3yaml&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# port of JvYAML (1.1)&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Haskell&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;YamlReference&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Haskell 1.2 reference parser&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Dart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# YAML package for Dart&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Rust&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml-rust&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# YAML 1.2 implementation in pure Rust&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;serde-yaml&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# YAML de/serialization of structs&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Nim&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;NimYAML&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# YAML 1.2 implementation in pure Nim&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Others&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yamlvim (src)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# YAML dumper/emitter in pure vimscript&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;Related Projects&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Rx&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;# Multi-Language Schemata Tool for JSON/YAML&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Kwalify&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# Ruby Schemata Tool for JSON/YAML&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yaml_vim&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# vim syntax files for YAML&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yatools.net&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Visual Studio editor for YAML&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JSON&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;# Official JSON Website&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Pygments&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# Python language Syntax Colorizer /w YAML support&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Tree_Part1</title>
@@ -149,7 +281,6 @@
 		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
 		&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
         
 		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -265,7 +396,7 @@
 
 &lt;h2 id=&quot;code-4&quot;&gt;Code&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;testtest
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 

@@ -99,6 +99,142 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="//2017/05/04/yaml/">
+        yaml
+      </a>
+    </h1>
+
+    <span class="post-date">04 May 2017</span>
+
+    <h1 id="simple-bash-implementation">Simple Bash Implementation</h1>
+
+<h2 id="parse-function">Parse function</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+parse_yaml<span class="o">()</span> <span class="o">{</span>
+   <span class="nb">local </span><span class="nv">prefix</span><span class="o">=</span><span class="nv">$2</span>
+   <span class="nb">local </span><span class="nv">s</span><span class="o">=</span><span class="s1">'[[:space:]]*'</span> <span class="nv">w</span><span class="o">=</span><span class="s1">'[a-zA-Z0-9_]*'</span> <span class="nv">fs</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> @|tr @ <span class="s1">'\034'</span><span class="k">)</span>
+   sed -ne <span class="s2">"s|^</span><span class="se">\(</span><span class="nv">$s</span><span class="se">\)\(</span><span class="nv">$w</span><span class="se">\)</span><span class="nv">$s</span><span class="s2">:</span><span class="nv">$s</span><span class="se">\"\(</span><span class="s2">.*</span><span class="se">\)\"</span><span class="nv">$s</span><span class="se">\$</span><span class="s2">|</span><span class="se">\1</span><span class="nv">$fs</span><span class="se">\2</span><span class="nv">$fs</span><span class="se">\3</span><span class="s2">|p"</span> <span class="se">\</span>
+        -e <span class="s2">"s|^</span><span class="se">\(</span><span class="nv">$s</span><span class="se">\)\(</span><span class="nv">$w</span><span class="se">\)</span><span class="nv">$s</span><span class="s2">:</span><span class="nv">$s</span><span class="se">\(</span><span class="s2">.*</span><span class="se">\)</span><span class="nv">$s</span><span class="se">\$</span><span class="s2">|</span><span class="se">\1</span><span class="nv">$fs</span><span class="se">\2</span><span class="nv">$fs</span><span class="se">\3</span><span class="s2">|p"</span>  <span class="nv">$1</span> |
+   awk -F<span class="nv">$fs</span> <span class="s1">'{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i &gt; indent) {delete vname[i]}}
+      if (length($3) &gt; 0) {
+         vn=""; for (i=0; i&lt;indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'</span><span class="nv">$prefix</span><span class="s1">'",vn, $2, $3);
+      }
+   }'</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="yaml-sample">Yaml Sample</h2>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">development</span><span class="pi">:</span>
+  <span class="s">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+  <span class="s">encoding</span><span class="pi">:</span> <span class="s">utf8</span>
+  <span class="s">database</span><span class="pi">:</span> <span class="s">my_database</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">root</span>
+<span class="s">password</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<h2 id="test-case">Test Case</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="c"># include parse_yaml function</span>
+. parse_yaml.sh
+
+<span class="c"># read yaml file</span>
+<span class="nb">eval</span> <span class="k">$(</span>parse_yaml zconfig.yml <span class="s2">"config_"</span><span class="k">)</span>
+
+<span class="c"># access yaml content</span>
+<span class="nb">echo</span> <span class="nv">$config_development_database</span>
+</code></pre>
+</div>
+
+<h1 id="source">Source</h1>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">YAML Resources</span><span class="pi">:</span>
+  <span class="s">YAML 1.2 (3rd Edition)</span><span class="pi">:</span> <span class="s">http://yaml.org/spec/1.2/spec.html</span>
+  <span class="s">YAML 1.1 (2nd Edition)</span><span class="pi">:</span> <span class="s">http://yaml.org/spec/1.1/</span>
+  <span class="s">YAML 1.0 (1st Edition)</span><span class="pi">:</span> <span class="s">http://yaml.org/spec/1.0/</span>
+  <span class="s">YAML Issues Page</span><span class="pi">:</span> <span class="s">https://github.com/yaml/yaml/issues</span>
+  <span class="s">YAML Mailing List</span><span class="pi">:</span> <span class="s">yaml-core@lists.sourceforge.net</span>
+  <span class="s">YAML IRC Channel</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#yaml</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">irc.freenode.net"</span>
+  <span class="s">YAML Cookbook (Ruby)</span><span class="pi">:</span> <span class="s">http://yaml4r.sourceforge.net/cookbook/ (local)</span>
+  <span class="s">YAML Reference Parser</span><span class="pi">:</span> <span class="s">http://ben-kiki.org/ypaste/</span>
+
+<span class="s">Projects</span><span class="pi">:</span>
+  <span class="s">C/C++ Libraries</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">libyaml</span>       <span class="c1"># "C" Fast YAML 1.1</span>
+  <span class="pi">-</span> <span class="s">Syck</span>          <span class="c1"># (dated) "C" YAML 1.0</span>
+  <span class="pi">-</span> <span class="s">yaml-cpp</span>      <span class="c1"># C++ YAML 1.2 implementation</span>
+  <span class="s">Ruby</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">psych</span>         <span class="c1"># libyaml wrapper (in Ruby core for 1.9.2)</span>
+  <span class="pi">-</span> <span class="s">RbYaml</span>        <span class="c1"># YAML 1.1 (PyYAML Port)</span>
+  <span class="pi">-</span> <span class="s">yaml4r</span>        <span class="c1"># YAML 1.0, standard library syck binding</span>
+  <span class="s">Python</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">PyYAML</span>        <span class="c1"># YAML 1.1, pure python and libyaml binding</span>
+  <span class="pi">-</span> <span class="s">ruamel.yaml</span>   <span class="c1"># YAML 1.2, update of PyYAML with round-tripping of comments</span>
+  <span class="pi">-</span> <span class="s">PySyck</span>        <span class="c1"># YAML 1.0, syck binding</span>
+  <span class="s">Java</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">JvYaml</span>        <span class="c1"># Java port of RbYaml</span>
+  <span class="pi">-</span> <span class="s">SnakeYAML</span>     <span class="c1"># Java 5 / YAML 1.1</span>
+  <span class="pi">-</span> <span class="s">YamlBeans</span>     <span class="c1"># To/from JavaBeans</span>
+  <span class="pi">-</span> <span class="s">JYaml</span>         <span class="c1"># Original Java Implementation</span>
+  <span class="s">Perl Modules</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">YAML</span>          <span class="c1"># Pure Perl YAML Module</span>
+  <span class="pi">-</span> <span class="s">YAML::XS</span>      <span class="c1"># Binding to libyaml</span>
+  <span class="pi">-</span> <span class="s">YAML::Syck</span>    <span class="c1"># Binding to libsyck</span>
+  <span class="pi">-</span> <span class="s">YAML::Tiny</span>    <span class="c1"># A small YAML subset module</span>
+  <span class="pi">-</span> <span class="s">PlYaml</span>        <span class="c1"># Perl port of PyYAML</span>
+  <span class="s">C#/.NET</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">YamlDotNet</span>    <span class="c1"># YAML 1.1 library with serialization support</span>
+  <span class="pi">-</span> <span class="s">yaml-net</span>      <span class="c1"># YAML 1.1 library</span>
+  <span class="pi">-</span> <span class="s">yatools.net</span>   <span class="c1"># (in-progress) YAML 1.1 implementation</span>
+  <span class="s">Golang</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">Go-yaml</span>       <span class="c1"># YAML support for the Go language.</span>
+  <span class="pi">-</span> <span class="s">Go-gypsy</span>      <span class="c1"># Simplified YAML parser written in Go.</span>
+  <span class="s">PHP</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">php-yaml</span>      <span class="c1"># libyaml bindings (YAML 1.1)</span>
+  <span class="pi">-</span> <span class="s">syck</span>          <span class="c1"># syck bindings (YAML 1.0)</span>
+  <span class="pi">-</span> <span class="s">spyc</span>          <span class="c1"># yaml loader/dumper (YAML 1.?)</span>
+  <span class="s">OCaml</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">ocaml-syck</span>    <span class="c1"># YAML 1.0 via syck bindings</span>
+  <span class="s">Javascript</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">JS-YAML</span>       <span class="c1"># Native PyYAML port to JavaScript.</span>
+  <span class="pi">-</span> <span class="s">JS-YAML Online# Browserified JS-YAML demo, to play with YAML in your browser.</span>
+  <span class="s">Actionscript</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">as3yaml</span>       <span class="c1"># port of JvYAML (1.1)</span>
+  <span class="s">Haskell</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">YamlReference</span> <span class="c1"># Haskell 1.2 reference parser</span>
+  <span class="s">Dart</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">yaml</span>          <span class="c1"># YAML package for Dart</span>
+  <span class="s">Rust</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">yaml-rust</span>     <span class="c1"># YAML 1.2 implementation in pure Rust</span>
+  <span class="pi">-</span> <span class="s">serde-yaml</span>    <span class="c1"># YAML de/serialization of structs</span>
+  <span class="s">Nim</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">NimYAML</span>       <span class="c1"># YAML 1.2 implementation in pure Nim</span>
+  <span class="s">Others</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">yamlvim (src)</span> <span class="c1"># YAML dumper/emitter in pure vimscript</span>
+
+<span class="s">Related Projects</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">Rx</span>            <span class="c1"># Multi-Language Schemata Tool for JSON/YAML</span>
+  <span class="pi">-</span> <span class="s">Kwalify</span>       <span class="c1"># Ruby Schemata Tool for JSON/YAML</span>
+  <span class="pi">-</span> <span class="s">yaml_vim</span>      <span class="c1"># vim syntax files for YAML</span>
+  <span class="pi">-</span> <span class="s">yatools.net</span>   <span class="c1"># Visual Studio editor for YAML</span>
+  <span class="pi">-</span> <span class="s">JSON</span>          <span class="c1"># Official JSON Website</span>
+  <span class="pi">-</span> <span class="s">Pygments</span>      <span class="c1"># Python language Syntax Colorizer /w YAML support</span>
+</code></pre>
+</div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="//2017/05/03/tree-part1/">
         Tree_Part1
       </a>
@@ -238,7 +374,6 @@
 		<span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
 
 		<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
         
 		<span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span> <span class="o">+</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
 
@@ -354,7 +489,7 @@
 
 <h2 id="code-4">Code</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><pre class="highlight"><code>testtest
 </code></pre>
 </div>
 
