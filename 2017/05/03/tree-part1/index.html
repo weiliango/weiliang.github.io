@@ -125,6 +125,77 @@
 
 <h2 id="description-1">Description</h2>
 
+<p><img src="../assets/1493854850795.png" alt="1493854850795" /></p>
+
+<h2 id="codes">Codes</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">TreeNode</span> <span class="nf">invertTree</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">helper</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="n">root</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+ 			<span class="n">swapTreeNode</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+ 			<span class="c1">// TreeNode tmp = root.left;</span>
+ 			<span class="c1">// root.left    = root.right;</span>
+ 			<span class="c1">// root.right   = tmp; </span>
+ 			
+			<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+			<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">swapTreeNode</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="n">TreeNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+	        <span class="n">root</span><span class="o">.</span><span class="na">left</span>    <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+	        <span class="n">root</span><span class="o">.</span><span class="na">right</span>   <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="thinking-about-reference-in-java">Thinking about reference in Java</h2>
+
+<h3 id="two-ways-to-swap">Two ways to swap</h3>
+
+<h4 id="code1">code1</h4>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">swapTreeNode</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="n">TreeNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+	        <span class="n">root</span><span class="o">.</span><span class="na">left</span>    <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+	        <span class="n">root</span><span class="o">.</span><span class="na">right</span>   <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="code2">code2</h4>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">....</span>
+<span class="n">swapTreeNode</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">)</span>
+<span class="o">....</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">swapTreeNode</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">a</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+	        <span class="n">TreeNode</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+  	        <span class="n">a</span>    		 <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+	        <span class="n">b</span>   		 <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>First code is right, however, the second one makes no sense. Because of the following reasons considering java reference.</p>
+
+<p><img src="../assets/1493856771867.png" alt="1493856771867" /></p>
+
 
 </div>
 
