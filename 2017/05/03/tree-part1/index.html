@@ -40,7 +40,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar" style="background-image: url('../public/MilkyWay-Sidebar.jpg');background-size: 170% 100%;">
   <div class="sidebar-item">
-    <p>I will never forget the stars shining in the dark, as well as your eyes which are brighter more than one hundred times. You are the best thing that ever happened to me.</p>
+    <p>I will never forget the stars shining in the dark, as well as your eyes which are even more brighter. You are the best thing that ever happened to me.</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -208,6 +208,97 @@
 
 <h2 id="code-2">Code</h2>
 
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">findTilt</span> <span class="o">(</span> <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="o">[]</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+		<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">helper</span> <span class="o">(</span> <span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="kt">int</span> <span class="o">[]</span> <span class="n">res</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="n">root</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+
+		<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        
+		<span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span> <span class="o">+</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="think-about-one-code-cannot-work">Think about one code cannot work</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">findTilt</span> <span class="o">(</span> <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="n">Integer</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+		<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">helper</span> <span class="o">(</span> <span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">res</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="n">root</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">left</span>  <span class="o">=</span> <span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+
+		<span class="n">res</span> <span class="o">+=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">res</span><span class="o">);</span>
+        
+		<span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span> <span class="o">+</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The reason it cannot work is that the value of an Integer cannot be automatic change, If you want to change the value, Java will automatic allocate a new memory, and the reference a* thus will point the memory 2, however, the a point to memory 1. This principle leads to the error.</p>
+
+<p><img src="../assets/1493867573240.png" alt="1493867573240" /></p>
+
+<h3 id="heres-four-solution">Here’s four solution</h3>
+
+<ul>
+  <li>
+    <p>create a class like this</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>class Object {
+  int value;
+}
+</code></pre>
+    </div>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>use an array with one value like what I did in the code</p>
+  </li>
+  <li>
+    <p>don’t do that, use a return value instead</p>
+  </li>
+  <li>
+    <p>use a static value</p>
+  </li>
+</ul>
 
 </div>
 
