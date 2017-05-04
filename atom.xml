@@ -4,7 +4,7 @@
  <title>Starlit Sky</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-03T17:14:03-07:00</updated>
+ <updated>2017-05-03T17:32:26-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
@@ -46,7 +46,7 @@
 
 &lt;p&gt;&lt;img src=&quot;../assets/1493854850795.png&quot; alt=&quot;1493854850795&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;codes&quot;&gt;Codes&lt;/h2&gt;
+&lt;h2 id=&quot;code-1&quot;&gt;Code&lt;/h2&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * Definition for a binary tree node.
@@ -114,6 +114,18 @@
 &lt;p&gt;First code is right, however, the second one makes no sense. Because of the following reasons considering java reference.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../assets/1493856771867.png&quot; alt=&quot;1493856771867&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;563-binary-tree-tilt&quot;&gt;563. Binary Tree Tilt&lt;/h1&gt;
+
+&lt;h2 id=&quot;description-2&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Given a binary tree, return the tilt of the &lt;strong&gt;whole tree&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The tilt of a &lt;strong&gt;tree node&lt;/strong&gt; is defined as the &lt;strong&gt;absolute difference&lt;/strong&gt; between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.&lt;/p&gt;
+
+&lt;p&gt;The tilt of the &lt;strong&gt;whole tree&lt;/strong&gt; is defined as the sum of all nodes’ tilt.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-2&quot;&gt;Code&lt;/h2&gt;
 
 </content>
  </entry>
