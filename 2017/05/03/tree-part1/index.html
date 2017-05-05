@@ -354,16 +354,39 @@
  *     TreeNode(int x) { val = x; }
  * }
  */</span>
+<span class="c1">//itervative</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">TreeNode</span> <span class="nf">lowestCommonAncestor</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">p</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
-		<span class="k">return</span> <span class="o">((</span><span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">)</span> <span class="o">?</span> <span class="n">root</span>  <span class="o">:</span> 
-			<span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span> <span class="o">?</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">)</span>  <span class="o">:</span>
-							   <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">)</span> <span class="o">;</span>
+		<span class="k">while</span> <span class="o">((</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span> <span class="o">)</span> <span class="o">*</span> <span class="o">(</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="na">val</span> <span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span> <span class="o">?</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">:</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">//recursive</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">TreeNode</span> <span class="nf">lowestCommonAncestor</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">p</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="o">(</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span> <span class="o">)</span> <span class="o">*</span> <span class="o">(</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">-</span> <span class="n">q</span><span class="o">.</span><span class="na">val</span> <span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span>
+		<span class="n">lowestCommonAncestor</span><span class="o">(</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="na">val</span> <span class="o">?</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">:</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">):</span> <span class="n">root</span><span class="o">;</span>
 	<span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
 </div>
 
+<h2 id="comments-2">Comments</h2>
+
+<p>For solving this question, we have the following assumption, and all the assumptions can be proved.</p>
+
+<ol>
+  <li>we are going to find a node meet the formula ( root.val - p.val ) * ( root.val - q.val ) &lt;=0</li>
+  <li>this node is unique</li>
+  <li>if we haven’t reached the node, we can prove that one of such statements must be true:
+    <ol>
+      <li>p.val &lt; root.val &amp;&amp; q.val &lt; root.val</li>
+      <li>p.val &gt; root.val &amp;&amp; q.val &gt; root.val</li>
+    </ol>
+  </li>
+</ol>
 
 </div>
 
@@ -374,7 +397,16 @@
       <li>
         <h3>
           <a href="/2017/05/04/yaml/">
-            yaml
+            YAML
+            <small>04 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/05/04/tree-part2/">
+            Tree_Part2
             <small>04 May 2017</small>
           </a>
         </h3>
