@@ -11,7 +11,7 @@
 
   <title>
     
-      Tree_Part2 &middot; Starlit Sky
+      Tree(Data Structure) &middot; Starlit Sky
     
   </title>
 
@@ -96,50 +96,9 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">Tree_Part2</h1>
+  <h1 class="post-title">Tree(Data Structure)</h1>
   <span class="post-date">04 May 2017</span>
-  <h1 id="110-balanced-binary-tree">110. Balanced Binary Tree</h1>
-
-<h2 id="description">Description</h2>
-
-<p>Given a binary tree, determine if it is height-balanced.</p>
-
-<p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of <em>every</em> node never differ by more than 1.</p>
-
-<h2 id="code">Code</h2>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBalanced</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-    	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">res</span> 	<span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-    	<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> 			<span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-    	<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
-    	<span class="k">return</span> <span class="n">res</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">helper</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">res</span><span class="o">)</span> <span class="o">{</span>
-    	<span class="k">if</span> <span class="o">(</span> <span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-    	<span class="n">left</span> 	<span class="o">=</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span> 
-    	<span class="n">right</span> 	<span class="o">=</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-		
-		<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">);</span>
-    	<span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  
-    	
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
-<h1 id="108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</h1>
-
+  
 
 </div>
 
@@ -158,8 +117,8 @@
     
       <li>
         <h3>
-          <a href="/2017/05/04/tree-structure/">
-            Tree(Data Structure)
+          <a href="/2017/05/04/tree-part2/">
+            Tree_Part2
             <small>04 May 2017</small>
           </a>
         </h3>
