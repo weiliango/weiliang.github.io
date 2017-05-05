@@ -108,9 +108,37 @@
 
 <h2 id="code">Code</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBalanced</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">res</span> 	<span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+    	<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> 			<span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+    	<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">res</span><span class="o">);</span>
+    	<span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">helper</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">res</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="k">if</span> <span class="o">(</span> <span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    	<span class="n">left</span> 	<span class="o">=</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span> 
+    	<span class="n">right</span> 	<span class="o">=</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		
+		<span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">left</span> <span class="o">-</span> <span class="n">right</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">);</span>
+    	<span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  
+    	
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 </div>
+
+<h1 id="108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</h1>
 
 
 </div>
