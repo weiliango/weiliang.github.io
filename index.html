@@ -235,19 +235,6 @@ parse_yaml<span class="o">()</span> <span class="o">{</span>
   
   <div class="post">
     <h1 class="post-title">
-      <a href="//2017/05/04/tree-structure/">
-        Tree(Data Structure)
-      </a>
-    </h1>
-
-    <span class="post-date">04 May 2017</span>
-
-    
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
       <a href="//2017/05/04/tree-part2/">
         Tree_Part2
       </a>
@@ -296,6 +283,59 @@ parse_yaml<span class="o">()</span> <span class="o">{</span>
 </div>
 
 <h1 id="108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</h1>
+
+<h2 id="description-1">Description</h2>
+
+<p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</p>
+
+<h2 id="code-1">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">TreeNode</span> <span class="nf">sortedArrayToBST</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="k">if</span> <span class="o">(</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    	<span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    	<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">nums</span><span class="o">);</span>
+    	<span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">helper</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">,</span> <span class="kt">int</span> <span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="n">m</span> 			<span class="o">=</span> <span class="o">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+    	<span class="n">root</span><span class="o">.</span><span class="na">val</span> 	<span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">];</span>
+    	<span class="k">if</span> <span class="o">(</span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+    		<span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">();</span>
+    		<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">nums</span><span class="o">);</span>
+    	<span class="o">}</span>
+    	<span class="k">if</span> <span class="o">(</span><span class="n">q</span> <span class="o">&gt;=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+    		<span class="n">root</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">();</span>
+    		<span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">q</span><span class="o">,</span> <span class="n">nums</span><span class="o">);</span>
+    	<span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h1 id="101-symmetric-tree">101. Symmetric Tree</h1>
+
+<h2 id="description-2">Description</h2>
+
+<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center)</p>
+
+<h2 id="code-2">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSymmetric</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">root</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="n">helper</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">helper</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="n">TreeNode</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">if</span> <span class="o">(</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span> 
+		<span class="k">if</span> <span class="o">(</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">==</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="nf">helper</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">right</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">helper</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 
 
   </div>

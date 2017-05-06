@@ -217,4 +217,24 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
     Server address: http://127.0.0.1:4000/
   Server running... press ctrl-c to stop.
       Regenerating: 1 file(s) changed at 2017-05-04 22:03:37 ...done in 0.139037603 seconds.
-      Regenerating: 1 file(s) changed at 2017-05-04 22:04:05 
+      Regenerating: 1 file(s) changed at 2017-05-04 22:04:05 ...done in 0.184637901 seconds.
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 1.426 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2017-05-05 12:47:08 ...done in 0.147915786 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-05 12:49:12 ...done in 0.173074697 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-05 12:49:29 ...done in 0.143346034 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-05 12:49:31 ...done in 0.153197101 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-05 12:49:34 ...done in 0.20964426 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-05 13:11:27 ...done in 0.152603351 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-05 13:54:00 ...done in 0.146889703 seconds.
+[2017-05-05 16:09:53] ERROR `/archive/v1.0.0.zip' not found.
+      Regenerating: 1 file(s) changed at 2017-05-05 16:10:35 
