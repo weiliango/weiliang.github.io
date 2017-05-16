@@ -45,6 +45,8 @@
 
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item" href="/">Home</a>
+    <a class="sidebar-nav-item" href="https://github.com/weiliango">Tags</a>
+    <a class="sidebar-nav-item" href="https://github.com/weiliango">Categories</a>
 
     
 
@@ -96,6 +98,124 @@
 
       <div class="container content">
         <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="//2017/05/15/greedy-part2/">
+        Greedy_Part2
+      </a>
+    </h1>
+
+    <span class="post-date">15 May 2017</span>
+
+    <h1 id="392-is-subsequence">392. Is Subsequence</h1>
+
+<h2 id="description">Description</h2>
+
+<p>Given a string <strong>s</strong> and a string <strong>t</strong>, check if <strong>s</strong> is subsequence of <strong>t</strong>.</p>
+
+<p>You may assume that there is only lower case English letters in both <strong>s</strong> and <strong>t</strong>. <strong>t</strong> is potentially a very long (length ~= 500,000) string, and <strong>s</strong> is a short string (&lt;=100).</p>
+
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code class="highlighter-rouge">"ace"</code> is a subsequence of <code class="highlighter-rouge">"abcde"</code> while <code class="highlighter-rouge">"aec"</code> is not).</p>
+
+<h2 id="code">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSubsequence</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">,</span> <span class="n">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">ps</span>	<span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">pt</span>	<span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+					<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="k">while</span> <span class="o">(</span> <span class="n">ps</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">pt</span> <span class="o">&lt;</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">ps</span><span class="o">)</span> <span class="o">==</span> <span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">pt</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+				<span class="n">ps</span><span class="o">++;</span>
+				<span class="n">pt</span><span class="o">++;</span>
+			<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+				<span class="n">pt</span><span class="o">++;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+
+		<span class="k">if</span> <span class="o">(</span> <span class="n">ps</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">ps</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">pt</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments">Comments</h2>
+
+<p>I think it can be written better. So many if statements for considering the special input.</p>
+
+<p>The key idea is to compare every s &amp; t elements, if it is equal, then move to the next target. Or continuing, until find some element equal. If the while loop finished and we reach the tail of the string t, we can concluded it’s a subsequence.</p>
+
+<h1 id="402-remove-k-digits">402. Remove K Digits</h1>
+
+<h2 id="description-1">Description</h2>
+
+<p>Given a non-negative integer <em>num</em> represented as a string, remove <em>k</em> digits from the number so that the new number is the smallest possible.</p>
+
+<h2 id="code-1">Code</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">removeKdigits</span><span class="o">(</span><span class="n">String</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+            <span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span> <span class="n">sb</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">sb</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+                    <span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                    <span class="n">k</span><span class="o">--;</span>
+                    <span class="n">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>       
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(</span> <span class="n">flag</span> <span class="o">)</span> <span class="o">{</span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+                <span class="n">k</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>   
+
+        <span class="k">while</span><span class="o">(</span> <span class="o">!</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span> <span class="n">sb</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="k">if</span> <span class="o">(</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">)</span> <span class="o">||</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"0"</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"0"</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>   
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="comments-1">Comments</h2>
+
+<p>Remove every first peak numbers of the string.</p>
+
+<h3 id="prove">Prove</h3>
+
+<p>//TODO</p>
+
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
