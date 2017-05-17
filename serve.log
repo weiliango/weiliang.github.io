@@ -918,3 +918,90 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
        Destination: /home/weiliang/Projects/Pahrump/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
+                    done in 0.922 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:20:15 ...done in 0.163089835 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:21:15 ...done in 0.146799838 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:21:15 ...done in 0.147226704 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:21:43 ...done in 0.133538137 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:21:44 ...done in 0.140980312 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:21:47 ...done in 0.13773464 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:21:55 ...done in 0.215444802 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:23:40 ...done in 0.144805551 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:24:32 ...done in 0.142418855 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:24:33 ...done in 0.143694549 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:26:05 ...done in 0.145917425 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:26:06 ...done in 0.148539061 seconds.
+[2017-05-16 20:26:56] ERROR `/archive/v1.0.0.zip' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:27:57 ...done in 0.147760115 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:29:12 ...done in 0.139435132 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:30:37 ...done in 0.139720302 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:31:40 ...done in 0.144560602 seconds.
+      Regenerating: 2 file(s) changed at 2017-05-16 20:34:29 ...done in 0.148134509 seconds.
+      Regenerating: 2 file(s) changed at 2017-05-16 20:34:44 ...done in 0.221928493 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:34:57 ...done in 0.142441498 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:35:11 ...done in 0.141476718 seconds.
+[2017-05-16 20:35:19] ERROR `/tag/' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:35:31 ...done in 0.144251014 seconds.
+[2017-05-16 20:35:34] ERROR `/tag/' not found.
+[2017-05-16 20:35:36] ERROR `/tag' not found.
+[2017-05-16 20:35:39] ERROR `/tag' not found.
+[2017-05-16 20:35:45] ERROR `/tag' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:35:50 ...done in 0.141945922 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:36:22 ...done in 0.146166053 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:37:15 ...done in 0.141776484 seconds.
+[2017-05-16 20:37:21] ERROR `/tag/' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:38:51 ...done in 0.138237767 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:38:58 ...done in 0.146268354 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:39:31 ...done in 0.225067317 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:41:29 ...done in 0.158485379 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:41:29 ...done in 0.147134204 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:42:01 ...done in 0.150341 seconds.
+      Regenerating: 8 file(s) changed at 2017-05-16 20:51:17 ...done in 0.146206522 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:52:14 ...done in 0.140832622 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:52:38 ...done in 0.141873662 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:53:35 ...done in 0.145707946 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:53:41 ...done in 0.147259849 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:54:57 ...done in 0.139676284 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:55:01 ...done in 0.141878382 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:56:13 ...done in 0.145060586 seconds.
+[2017-05-16 20:56:17] ERROR `/favicon.ico' not found.
+[2017-05-16 20:56:32] ERROR `/favicon.ico' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:57:33 ...done in 0.149389967 seconds.
+[2017-05-16 20:57:54] ERROR `/tags' not found.
+[2017-05-16 20:57:58] ERROR `/favicon.ico' not found.
+[2017-05-16 20:57:58] ERROR `/favicon.ico' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 20:59:28 ...done in 0.15533191 seconds.
+[2017-05-16 21:00:00] ERROR `/tags' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:00:34 ...done in 0.151892539 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:01:32 ...done in 0.141793257 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:01:35 ...done in 0.138491555 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:02:49 ...done in 0.141015615 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:03:37 ...done in 0.151881474 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:10:13 ...done in 0.15003177 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:10:26 ...done in 0.162955044 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:10:36 ...done in 0.13732076 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:11:09 ...done in 0.140733349 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:11:38 ...done in 0.141342437 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:11:41 ...done in 0.157856322 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:11:41 ...done in 0.151494115 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:11:41 ...done in 0.137162436 seconds.
+[2017-05-16 21:11:59] ERROR `/tag/' not found.
+WARN: Unresolved specs during Gem::Specification.reset:
+      listen (< 3.1, ~> 3.0)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 0.3 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+jekyll 3.4.3 | Error:  Address already in use - bind(2) for 127.0.0.1:4000
+      Regenerating: 1 file(s) changed at 2017-05-16 21:12:16 
