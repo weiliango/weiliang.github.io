@@ -1004,4 +1004,22 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
  Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
 Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
 jekyll 3.4.3 | Error:  Address already in use - bind(2) for 127.0.0.1:4000
-      Regenerating: 1 file(s) changed at 2017-05-16 21:12:16 
+      Regenerating: 1 file(s) changed at 2017-05-16 21:12:16 ...done in 0.137062566 seconds.
+[2017-05-16 21:12:37] ERROR `/tag_index' not found.
+[2017-05-16 21:12:46] ERROR `/tags' not found.
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 0.949 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+[2017-05-16 21:15:18] ERROR `/tags' not found.
+[2017-05-16 21:15:55] ERROR `/tag_index' not found.
+[2017-05-16 21:16:07] ERROR `/post' not found.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:16:11 ...done in 0.140927842 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-16 21:16:20 
