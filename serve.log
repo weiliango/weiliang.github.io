@@ -889,4 +889,10 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
       Regenerating: 1 file(s) changed at 2017-05-15 22:30:21 ...done in 0.171564156 seconds.
       Regenerating: 1 file(s) changed at 2017-05-15 22:31:44 ...done in 0.147570826 seconds.
       Regenerating: 1 file(s) changed at 2017-05-15 22:32:22 ...done in 0.162202025 seconds.
-      Regenerating: 1 file(s) changed at 2017-05-15 22:33:10 
+      Regenerating: 1 file(s) changed at 2017-05-15 22:33:10 ...done in 0.154715459 seconds.
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
