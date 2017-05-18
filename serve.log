@@ -1022,4 +1022,12 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
 [2017-05-16 21:15:55] ERROR `/tag_index' not found.
 [2017-05-16 21:16:07] ERROR `/post' not found.
       Regenerating: 1 file(s) changed at 2017-05-16 21:16:11 ...done in 0.140927842 seconds.
-      Regenerating: 1 file(s) changed at 2017-05-16 21:16:20 
+      Regenerating: 1 file(s) changed at 2017-05-16 21:16:20 ...done in 0.155345967 seconds.
+[2017-05-16 21:17:22] ERROR `/post' not found.
+[2017-05-16 22:03:14] ERROR `/greedy_part2' not found.
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
