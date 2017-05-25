@@ -4,7 +4,7 @@
  <title>Starlit Sky</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-05-25T11:42:59-07:00</updated>
+ <updated>2017-05-25T13:53:57-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
@@ -663,7 +663,9 @@ parse_yaml&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o
    <link href="http://localhost:4000/2017/05/03/greedy_part1/"/>
    <updated>2017-05-03T00:00:00-07:00</updated>
    <id>http://localhost:4000/2017/05/03/greedy_part1</id>
-   <content type="html">&lt;h1 id=&quot;122-best-time-to-buy-and-sell-stock-ii&quot;&gt;122. Best Time to Buy and Sell Stock II&lt;/h1&gt;
+   <content type="html">&lt;p&gt;[TOC]
+NoOp&lt;/p&gt;
+&lt;h1 id=&quot;122-best-time-to-buy-and-sell-stock-ii&quot;&gt;122. Best Time to Buy and Sell Stock II&lt;/h1&gt;
 
 &lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
 

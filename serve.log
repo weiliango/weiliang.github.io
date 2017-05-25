@@ -1322,3 +1322,16 @@ Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
        Destination: /home/weiliang/Projects/Pahrump/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
+                    done in 1.363 seconds.
+ Auto-regeneration: enabled for '/home/weiliang/Projects/Pahrump'
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2017-05-25 13:16:23 ...done in 0.151218865 seconds.
+      Regenerating: 1 file(s) changed at 2017-05-25 13:42:38 ...done in 0.136384429 seconds.
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+Configuration file: /home/weiliang/Projects/Pahrump/_config.yml
+            Source: /home/weiliang/Projects/Pahrump
+       Destination: /home/weiliang/Projects/Pahrump/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
